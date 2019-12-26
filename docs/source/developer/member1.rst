@@ -16,7 +16,7 @@ Code
 Database Functions
 ~~~~~~~~~~~~~~~~~~
 ::
-def add_jobtitle(self, jobtitle):
+    def add_jobtitle(self, jobtitle):
         with dbapi2.connect(self.dbfile) as connection:
             cursor = connection.cursor()
             query = "INSERT INTO JOBTITLES (JOBNAME, IS_EXECUTIVE, DEPARTMENT, IS_ACTIVE, TO_BE_HIRED) VALUES (%s, %s, %s,%s,%s)"
