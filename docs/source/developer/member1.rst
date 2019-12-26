@@ -15,7 +15,6 @@ Code
 ----
 Database Functions
 ~~~~~~~~~~~~~~~~~~
-::
     def add_jobtitle(self, jobtitle):
         with dbapi2.connect(self.dbfile) as connection:
             cursor = connection.cursor()
@@ -67,9 +66,9 @@ Database Functions
             jobtitle_id = cursor.fetchone()
         return jobtitle_id    
 
-These are the functions about job titles, for all CRUD operations as well as getting the job title id for the foreign key operations.
+* These are the functions about job titles, for all CRUD operations as well as getting the job title id for the foreign key operations.
 
-::
+
    def add_level(self, level):
         with dbapi2.connect(self.dbfile) as connection:
             cursor = connection.cursor()
@@ -121,10 +120,9 @@ These are the functions about job titles, for all CRUD operations as well as get
             level_id = cursor.fetchone()
         return level_id  
 
-These are the functions about level, for all CRUD operations as well as getting the level id for the foreign key operations.
+* These are the functions about level, for all CRUD operations as well as getting the level id for the foreign key operations.
 
-::
-def add_workchart(self, workchart):
+    def add_workchart(self, workchart):
         with dbapi2.connect(self.dbfile) as connection:
             cursor = connection.cursor()
             query = "INSERT INTO WORKCHART (PERSONID, JOBID, LEVELID, SALARY, FOOD_BUDGET, TOTAL_YEARS_WORKED, YEARS_IN_COMPANY, QUALIFIES_FOR_PENSION) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
