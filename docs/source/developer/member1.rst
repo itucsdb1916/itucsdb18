@@ -16,154 +16,127 @@ Code
 Database Functions
 ~~~~~~~~~~~~~~~~~~
     def add_jobtitle(self, jobtitle):
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "INSERT INTO JOBTITLES (JOBNAME, IS_EXECUTIVE, DEPARTMENT, IS_ACTIVE, TO_BE_HIRED) VALUES (%s, %s, %s,%s,%s)"
-            cursor.execute(query, (jobtitle.title, jobtitle.is_executive,jobtitle.department, jobtitle.is_active, jobtitle.to_be_hired))
-            connection.commit()
-            jobtitle_key = cursor.lastrowid
-        return jobtitle_key
+        adds a new job title
+        returns: jobtitle_key
 
     def delete_jobtitle(self, jobtitle_key):
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "DELETE FROM JOBTITLES WHERE (ID = %s)"
-            cursor.execute(query, (jobtitle_key,))
-            connection.commit()
+        deletes a job title
 
     def update_jobtitle(self, jobtitle_key, title, is_executive, department, is_active, to_be_hired):
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "UPDATE JOBTITLES SET JOBNAME = %s, IS_EXECUTIVE = %s, DEPARTMENT = %s, IS_ACTIVE = %s, TO_BE_HIRED= %s WHERE (ID = %s)"
-            cursor.execute(query, (title, is_executive, department, is_active, to_be_hired, jobtitle_key))
-            connection.commit()
-        return jobtitle_key
+        updates an existing job title
+        returns: jobtitle_key
     
     def get_jobtitle(self, jobtitle_key):
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "SELECT JOBNAME, IS_EXECUTIVE, DEPARTMENT, IS_ACTIVE, TO_BE_HIRED FROM JOBTITLES WHERE (ID = %s)"
-            cursor.execute(query, (jobtitle_key,))
-            title,is_executive,department,is_active,to_be_hired = cursor.fetchone()
-        jobtitle_ = Jobtitle(title,is_executive,department,is_active,to_be_hired)
-        return jobtitle_
+        get a single job title by its key
+        returns: jobtitle_
     
     def get_jobtitles(self):
-        jobtitles = []
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "SELECT ID, JOBNAME, IS_EXECUTIVE, DEPARTMENT, IS_ACTIVE, TO_BE_HIRED FROM JOBTITLES ORDER BY ID"
-            cursor.execute(query)
-            for jobtitle_key, title, is_executive, department, is_active, to_be_hired in cursor:
-                jobtitles.append((jobtitle_key, Jobtitle(title,is_executive,department,is_active,to_be_hired)))
-        return jobtitles
+        get all job titles and add them to a list
+        returns: jobtitles
 
     def get_jobtitle_id(self, jobtitle_name):
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "SELECT ID FROM JOBTITLES WHERE (JOBNAME = %s)"
-            cursor.execute(query, (jobtitle_name,))
-            jobtitle_id = cursor.fetchone()
-        return jobtitle_id    
+        returns the id of a job title by its given name
+        returns: jobtitle_id    
 
 * These are the functions about job titles, for all CRUD operations as well as getting the job title id for the foreign key operations.
 
 
     def add_level(self, level):
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "INSERT INTO LEVEL (LEVELNAME, EXPERIENCE_YEAR_NEEDED, BONUS_SALARY, IS_DIRECTOR, IS_MANAGER) VALUES (%s, %s, %s, %s, %s);"
-            cursor.execute(query, (level.title, level.experience, level.bonus_salary, level.is_director, level.is_manager))
-            connection.commit()
-            level_key = cursor.lastrowid
-        return level_key
+        adds a new level
+        returns: level_key
 
     def delete_level(self, level_key):
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "DELETE FROM LEVEL WHERE (ID = %s)"
-            cursor.execute(query, (level_key,))
-            connection.commit()
+        deletes a level
 
     def update_level(self, level_key, title, experience, bonus_salary, is_director, is_manager):
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "UPDATE LEVEL SET LEVELNAME = %s, EXPERIENCE_YEAR_NEEDED = %s, BONUS_SALARY = %s, IS_DIRECTOR = %s, IS_MANAGER= %s WHERE (ID = %s)"
-            cursor.execute(query, (title, experience, bonus_salary, is_director, is_manager,level_key))
-            connection.commit()
-        return level_key
+        updates an existing level
+        returns: level_key
     
     def get_level(self, level_key):
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "SELECT LEVELNAME, EXPERIENCE_YEAR_NEEDED, BONUS_SALARY, IS_DIRECTOR, IS_MANAGER FROM LEVEL WHERE (ID = %s)"
-            cursor.execute(query, (level_key,))
-            title, experience, bonus_salary, is_director, is_manager = cursor.fetchone()
-        level_ = Level(title, experience, bonus_salary, is_director, is_manager)
-        return level_
+        get a single level by its key
+        returns: level_
     
     def get_levels(self):
-        levels = []
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "SELECT ID, LEVELNAME, EXPERIENCE_YEAR_NEEDED, BONUS_SALARY, IS_DIRECTOR, IS_MANAGER FROM LEVEL ORDER BY ID"
-            cursor.execute(query)
-            for level_key, title, experience, bonus_salary, is_director, is_manager in cursor:
-                levels.append((level_key, Level(title, experience, bonus_salary, is_director, is_manager)))
-        return levels
+        get all levels and add them to a list
+        returns: levels
     
     def get_level_id(self, level_name):
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "SELECT ID FROM LEVEL WHERE (LEVELNAME = %s)"
-            cursor.execute(query, (level_name,))
-            level_id = cursor.fetchone()
-        return level_id  
+        returns the id of a level by its given name
+        returns: level_id 
 
 * These are the functions about level, for all CRUD operations as well as getting the level id for the foreign key operations.
 
     def add_workchart(self, workchart):
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "INSERT INTO WORKCHART (PERSONID, JOBID, LEVELID, SALARY, FOOD_BUDGET, TOTAL_YEARS_WORKED, YEARS_IN_COMPANY, QUALIFIES_FOR_PENSION) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
-            cursor.execute(query, (workchart.personid, workchart.jobid, workchart.levelid, workchart.salary, workchart.foodbudget, workchart.total_yr_worked, workchart.yr_in_comp, workchart.qualify))
-            connection.commit()
-            workchart_key = workchart.personid
-        return workchart_key
+        adds a new workchart
+        returns: workchart_key
 
     def delete_workchart(self, workchart_key):
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "DELETE FROM WORKCHART WHERE (PERSONID = %s)"
-            cursor.execute(query, (workchart_key,))
-            connection.commit()
+        deletes a workchart
 
     def get_workchart(self, workchart_key):
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "SELECT PERSONID, JOBID, LEVELID, SALARY, FOOD_BUDGET, TOTAL_YEARS_WORKED, YEARS_IN_COMPANY, QUALIFIES_FOR_PENSION FROM WORKCHART WHERE (PERSONID = %s)"
-            cursor.execute(query, (workchart_key,))
-            personid, jobid, levelid, salary, foodbudget, total_yr_worked, yr_in_comp, qualify = cursor.fetchone()
-        workchart_ = Workchart(personid, jobid, levelid, salary, foodbudget, total_yr_worked, yr_in_comp, qualify)
-        return workchart_
+        get a single workchart by its key
+        returns: workchart_
 
     def get_workcharts(self):
-        workcharts = []
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "SELECT PERSONID, JOBID, LEVELID, SALARY, FOOD_BUDGET, TOTAL_YEARS_WORKED, YEARS_IN_COMPANY, QUALIFIES_FOR_PENSION FROM WORKCHART ORDER BY SALARY DESC"
-            cursor.execute(query)
-            for personid, jobid, levelid, salary, foodbudget, total_yr_worked, yr_in_comp, qualify in cursor:
-                workcharts.append((personid, Workchart(personid, jobid, levelid, salary, foodbudget, total_yr_worked, yr_in_comp, qualify)))
-        return workcharts
+        get all workcharts and add them to a list
+        returns: workcharts
     
     def update_workchart(self, personid, jobid, levelid, salary, foodbudget, total_yr_worked, yr_in_comp, qualify):
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "UPDATE WORKCHART SET JOBID = %s, LEVELID = %s, SALARY = %s, FOOD_BUDGET = %s, TOTAL_YEARS_WORKED= %s, YEARS_IN_COMPANY = %s, QUALIFIES_FOR_PENSION = %s WHERE (PERSONID = %s)"
-            cursor.execute(query, (jobid, levelid, salary, foodbudget, total_yr_worked, yr_in_comp, qualify, personid))
-            connection.commit()
-        return personid
+        updates an existing workchart
+        returns: workchart_key
     
 * These are the functions about workchart, for all CRUD operations as well as getting the names of employees, titles of jobs, titles of levels from their id values from the foreign key operations.
 
+View Functions
+~~~~~~~~~~~~~~~~~~
+    def list_jobtitles():
+        lists all the existing job titles by calling the get job titles function from the Database
+        if user is logged in as admin, they can delete some of the existing job titles
+    
+    def jobtitle_page(jobtitle_key):
+        gets only the requested job title by its job title key by calling get job title function from the Database
+        if user is logged in as admin, they can edit the job title
+    
+    def jobtitle_add_page():
+        adds a job title to the database by calling the add job title function from database
+        validates whether the title is in appropriate form
+
+    def jobtitle_update_page(jobtitle_key):
+        updates a job title to the database by calling the add job title function from database
+        validates whether the title is in appropriate form
+    
+    def list_levels():
+        lists all the existing levels by calling the get levels function from the Database
+        if user is logged in as admin, they can delete some of the existing levels
+    
+    def level_page(level_key):
+        gets only the requested level by its level key by calling get level function from the Database
+        if user is logged in as admin, they can edit the level
+    
+    def level_add_page():
+        adds a level to the database by calling the add level function from database
+        validates whether the title is in appropriate form
+
+    def level_update_page(level_key):
+        updates a level to the database by calling the add level function from database
+        validates whether the title is in appropriate form
+
+    def list_workcharts():
+        lists all the existing workcharts by calling the get workcharts function from the Database get_employees, get_levels and get_jobtitles because of the foreign keys
+        if user is logged in as admin, they can delete some of the existing workcharts
+    
+    def workchart_page(workchart_key):
+        gets only the requested workchart by its workchart key by calling get workchart function from the Database get_employees, get_levels and get_jobtitles because of the foreign keys
+        if user is logged in as admin, they can edit the workchart
+    
+    def workchart_add_page():
+        adds a workchart to the database by calling the add workchart function from database and get_employees, get_levels and get_jobtitles because of the foreign keys
+        validates whether the salary is in appropriate form
+
+    def workchart_update_page(workchart_key):
+        updates a workchart to the database by calling the add workchart function from database get_employees, get_levels and get_jobtitles because of the foreign keys
+        validates whether the salary is in appropriate form
+
+    
+    
+    

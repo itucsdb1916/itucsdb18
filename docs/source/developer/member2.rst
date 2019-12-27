@@ -1,6 +1,6 @@
 Parts Implemented by Hakan Saraç
 ================================
-For EmployeeDB, I have worked on the tables JOBTITLES, LEVEL, WORKCHART
+For EmployeeDB, I have worked on the tables PERSON, SERVICE, TRANSPORTATION
 and their related functions.
 
 Database Design
@@ -15,153 +15,124 @@ Code
 ----
 Database Functions
 ~~~~~~~~~~~~~~~~~~
+
     def add_employee(self, employee):
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "INSERT INTO PERSON (NAME, AGE, GENDER, HEIGHT, WEIGHT) VALUES (%s, %s, %s, %s, %s)"
-            cursor.execute(query, (employee.name, employee.age, employee.gender, employee.height, employee.weight))
-            connection.commit()
-            employee_key = cursor.lastrowid
-        return employee_key
+        adds a new employee
+        returns: employee_key
 
     def delete_employee(self, employee_key):
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "DELETE FROM PERSON WHERE (ID = %s)"
-            cursor.execute(query, (employee_key,))
-            connection.commit()
+        deletes an employee
 
     def update_employee(self, employee_key, name, age, gender, height, weight):
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "UPDATE PERSON SET NAME = %s, AGE = %s, GENDER = %s, HEIGHT = %s, WEIGHT = %s WHERE (ID = %s)"
-            cursor.execute(query, (name, age, gender, height, weight, employee_key))
-            connection.commit()
-        return employee_key
+        updates an existing employee
+        returns: employee_key
 
     def get_employee(self, employee_key):
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "SELECT NAME, AGE, GENDER, HEIGHT, WEIGHT FROM PERSON WHERE (ID = %s)"
-            cursor.execute(query, (employee_key,))
-            name, age, gender, height, weight = cursor.fetchone()
-        employee_ = Employee(name, age, gender, height, weight)
-        return employee_
+        get a single employee by its key
+        returns: employee_
 
     def get_employees(self):
-        employees = []
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "SELECT ID, NAME, AGE, GENDER, HEIGHT, WEIGHT FROM PERSON ORDER BY ID"
-            cursor.execute(query)
-            for employee_key, name, age, gender, height, weight in cursor:
-                employees.append((employee_key, Employee(name, age, gender, height, weight)))
-        return employees
+        get all employees and add them to a list
+        returns: employees
     
     def get_employee_id(self, employee_name):
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "SELECT ID FROM PERSON WHERE (NAME = %s)"
-            cursor.execute(query, (employee_name,))
-            employee_id = cursor.fetchone()
-        return employee_id
+        returns the id of an employee by its given name
+        returns: employee_id 
 
 * These are the functions about employees, for all CRUD operations as well as getting the employee id for the foreign key operations.
 
     def add_service(self, service):
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "INSERT INTO SERVICE (TOWN, CAPACITY, CURRENT_PASSENGERS, LICENCE_PLATE, DEPARTURE_HOUR) VALUES (%s, %s, %s,%s,%s)"
-            cursor.execute(query, (service.town, service.capacity, service.current_passengers, service.licence_plate,service.departure_hour))
-            connection.commit()
-            service_key = cursor.lastrowid
-        return service_key
+        adds a new service
+        returns: service_key
 
     def delete_service(self, service_key):
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "DELETE FROM SERVICE WHERE (ID = %s)"
-            cursor.execute(query, (service_key,))
-            connection.commit()
+        deletes a service
 
     def update_service(self, service_key, town, capacity, current_passengers, licence_plate, departure_hour):
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "UPDATE SERVICE SET TOWN = %s, CAPACITY = %s, CURRENT_PASSENGERS = %s, LICENCE_PLATE = %s, DEPARTURE_HOUR= %s WHERE (ID = %s)"
-            cursor.execute(query, (town, capacity, current_passengers, licence_plate, departure_hour, service_key))
-            connection.commit()
-        return service_key
+        updates an existing service
+        returns: service_key
     
     def get_service(self, service_key):
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "SELECT TOWN, CAPACITY, CURRENT_PASSENGERS, LICENCE_PLATE, DEPARTURE_HOUR FROM SERVICE WHERE (ID = %s)"
-            cursor.execute(query, (service_key,))
-            town,capacity,current_passengers,licence_plate,departure_hour = cursor.fetchone()
-        service_ = Service(town,capacity,current_passengers,licence_plate,departure_hour)
-        return service_
+        get a single service by its key
+        returns: service_
     
     def get_services(self):
-        services = []
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "SELECT ID, TOWN, CAPACITY, CURRENT_PASSENGERS, LICENCE_PLATE, DEPARTURE_HOUR FROM SERVICE ORDER BY ID"
-            cursor.execute(query)
-            for service_key,town,capacity,current_passengers,licence_plate,departure_hour in cursor:
-                services.append((service_key, Service(town,capacity,current_passengers,licence_plate,departure_hour)))
-        return services
+        get all services and add them to a list
+        returns: services
 
     def get_service_id(self, service_name):
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "SELECT ID FROM SERVICE WHERE (TOWN = %s)"
-            cursor.execute(query, (service_name,))
-            service_id = cursor.fetchone()
-        return service_id  
+        returns the id of a service by its given name
+        returns: service_id  
 
 * These are the functions about services, for all CRUD operations as well as getting the service id for the foreign key operations.
 
     def add_transportation(self, transportation):
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "INSERT INTO TRANSPORTATION (PERSONID, SERVICEID, USES_IN_MORNING, USES_IN_EVENING, SEAT_NUMBER, SERVICE_FEE, STOP_NAME) VALUES (%s, %s, %s, %s, %s, %s, %s)"
-            cursor.execute(query, (transportation.personid, transportation.serviceid, transportation.uses_in_morning, transportation.uses_in_evening, transportation.seat_nr, transportation.service_fee, transportation.stop_name))
-            connection.commit()
-            transportation_key = transportation.personid
-        return transportation_key
+        adds a new transportation
+        returns: transportation_key
 
     def delete_transportation(self, transportation_key):
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "DELETE FROM TRANSPORTATION WHERE (PERSONID = %s)"
-            cursor.execute(query, (transportation_key,))
-            connection.commit()
+        deletes a transportation
 
     def get_transportation(self, transportation_key):
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "SELECT PERSONID, SERVICEID, USES_IN_MORNING, USES_IN_EVENING, SEAT_NUMBER, SERVICE_FEE, STOP_NAME FROM TRANSPORTATION WHERE (PERSONID = %s)"
-            cursor.execute(query, (transportation_key,))
-            personid,serviceid, uses_in_morning, uses_in_evening, seat_nr, service_fee, stop_name = cursor.fetchone()
-        transportation_ = Transportation(personid,serviceid, uses_in_morning, uses_in_evening, seat_nr, service_fee, stop_name)
-        return transportation_
+        get a single transportation by its key
+        returns: transportation_
 
     def get_transportations(self):
-        transportations = []
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "SELECT PERSONID, SERVICEID, USES_IN_MORNING, USES_IN_EVENING, SEAT_NUMBER, SERVICE_FEE, STOP_NAME FROM TRANSPORTATION ORDER BY SERVICEID"
-            cursor.execute(query)
-            for personid,serviceid, uses_in_morning, uses_in_evening, seat_nr, service_fee, stop_name in cursor:
-                transportations.append((personid, Transportation(personid,serviceid, uses_in_morning, uses_in_evening, seat_nr, service_fee, stop_name)))
-        return transportations
+        get all transportations and add them to a list
+        returns: transportations
 
     def update_transportation(self, personid, serviceid, uses_in_morning, uses_in_evening, seat_nr, service_fee, stop_name):
-        with dbapi2.connect(self.dbfile) as connection:
-            cursor = connection.cursor()
-            query = "UPDATE TRANSPORTATION SET SERVICEID = %s, USES_IN_MORNING = %s, USES_IN_EVENING = %s, SEAT_NUMBER = %s, SERVICE_FEE= %s, STOP_NAME = %s WHERE (PERSONID = %s)"
-            cursor.execute(query, (serviceid, uses_in_morning, uses_in_evening, seat_nr, service_fee, stop_name, personid))
-            connection.commit()
-        return personid
+        updates an existing transportation
+        returns: transportation_key
 
 * These are the functions about transportation, for all CRUD operations as well as getting the names of employees and towns of services from their id values from the foreign key operations.
+
+View Functions
+~~~~~~~~~~~~~~~~~~
+    def list_page():
+        lists all the existing employees by calling the get employee function from the Database
+        if user is logged in as admin, they can delete some of the existing employees
+    
+    def employee_page(employee_key):
+        gets only the requested employee by its employee key by calling get employee function from the Database
+        if user is logged in as admin, they can edit the employee
+    
+    def employee_add_page():
+        adds a employee to the database by calling the add employee function from database
+        validates whether the name and age are in appropriate form
+
+    def employee_update_page(employee_key):
+        updates a employee to the database by calling the update employee function from database
+        validates whether the name and age are in appropriate form
+
+    def list_services():
+        lists all the existing services by calling the get services function from the Database
+        if user is logged in as admin, they can delete some of the existing services
+    
+    def service_page(service_key):
+        gets only the requested service by its service key by calling get service function from the Database
+        if user is logged in as admin, they can edit the service
+    
+    def jobtitle_add_page():
+        adds a service to the database by calling the add service function from database
+        validates whether the title is in appropriate form
+
+    def jobtitle_update_page(jobtitle_key):
+        updates a service to the database by calling the add service function from database
+        validates whether the title is in appropriate form
+
+    def list_transportations():
+        lists all the existing transportations by calling the get transportations function from the Database get_employees and get_service because of the foreign keys
+        if user is logged in as admin, they can delete some of the existing transportations
+    
+    def transportation_page(transportation_key):
+        gets only the requested transportation by its transportation key by calling get transportation function from the Database get_employees and get_service because of the foreign keys
+        if user is logged in as admin, they can edit the transportation
+    
+    def transportation_add_page():
+        adds a transportation to the database by calling the add transportation function from database and get_employees and get_service because of the foreign keys
+        validates whether the salary is in appropriate form
+
+    def transportation_update_page(transportation_key):
+        updates a transportation to the database by calling the add transportation function from database get_employees and get_service because of the foreign keys
+        validates whether the salary is in appropriate form
