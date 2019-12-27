@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Parts Implemented by Hakan Saraç &mdash; ITUCSDB1916  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Parts Implemented by Sinem Elif Haseki" href="member1.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ITUCSDB1916
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../user/index.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Developer Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="member1.html">Parts Implemented by Sinem Elif Haseki</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Parts Implemented by Hakan Saraç</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#database-design">Database Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#code">Code</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#database-functions">Database Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#view-functions">View Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ITUCSDB1916</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Developer Guide</a> &raquo;</li>
+        
+      <li>Parts Implemented by Hakan Saraç</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/developer/member2.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="parts-implemented-by-hakan-sarac">
+<h1>Parts Implemented by Hakan Saraç<a class="headerlink" href="#parts-implemented-by-hakan-sarac" title="Permalink to this headline">¶</a></h1>
+<p>For EmployeeDB, I have worked on the tables PERSON, SERVICE, TRANSPORTATION
+and their related functions.</p>
+<div class="section" id="database-design">
+<h2>Database Design<a class="headerlink" href="#database-design" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="../_images/hakan.png"><img alt="../_images/hakan.png" src="../_images/hakan.png" style="width: 600px;" /></a>
+<ul class="simple">
+<li><p>The “PERSON” table contains the available person along with their properties like their name, age, gender, height, and weight.</p></li>
+<li><p>The “SERVICE” table contains the available services for employees along with their properties like its town, capacity, current passenger amount, licence plate and departure hour.</p></li>
+<li><p>The “TRANSPORTATION” table contains the current transportation information which maps the name of the employee to their services, seat number, service fee, stop name, whether they use it in the morning or evening.</p></li>
+</ul>
+</div>
+<div class="section" id="code">
+<h2>Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="database-functions">
+<h3>Database Functions<a class="headerlink" href="#database-functions" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="simple">
+<dt>def add_employee(self, employee):</dt><dd><p>adds a new employee
+returns: employee_key</p>
+</dd>
+<dt>def delete_employee(self, employee_key):</dt><dd><p>deletes an employee</p>
+</dd>
+<dt>def update_employee(self, employee_key, name, age, gender, height, weight):</dt><dd><p>updates an existing employee
+returns: employee_key</p>
+</dd>
+<dt>def get_employee(self, employee_key):</dt><dd><p>get a single employee by its key
+returns: <a href="#id1"><span class="problematic" id="id2">employee_</span></a></p>
+</dd>
+<dt>def get_employees(self):</dt><dd><p>get all employees and add them to a list
+returns: employees</p>
+</dd>
+<dt>def get_employee_id(self, employee_name):</dt><dd><p>returns the id of an employee by its given name
+returns: employee_id</p>
+</dd>
+</dl>
+</div></blockquote>
+<ul>
+<li><p>These are the functions about employees, for all CRUD operations as well as getting the employee id for the foreign key operations.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>def add_service(self, service):</dt><dd><p>adds a new service
+returns: service_key</p>
+</dd>
+<dt>def delete_service(self, service_key):</dt><dd><p>deletes a service</p>
+</dd>
+<dt>def update_service(self, service_key, town, capacity, current_passengers, licence_plate, departure_hour):</dt><dd><p>updates an existing service
+returns: service_key</p>
+</dd>
+<dt>def get_service(self, service_key):</dt><dd><p>get a single service by its key
+returns: <a href="#id3"><span class="problematic" id="id4">service_</span></a></p>
+</dd>
+<dt>def get_services(self):</dt><dd><p>get all services and add them to a list
+returns: services</p>
+</dd>
+<dt>def get_service_id(self, service_name):</dt><dd><p>returns the id of a service by its given name
+returns: service_id</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+<li><p>These are the functions about services, for all CRUD operations as well as getting the service id for the foreign key operations.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>def add_transportation(self, transportation):</dt><dd><p>adds a new transportation
+returns: transportation_key</p>
+</dd>
+<dt>def delete_transportation(self, transportation_key):</dt><dd><p>deletes a transportation</p>
+</dd>
+<dt>def get_transportation(self, transportation_key):</dt><dd><p>get a single transportation by its key
+returns: <a href="#id5"><span class="problematic" id="id6">transportation_</span></a></p>
+</dd>
+<dt>def get_transportations(self):</dt><dd><p>get all transportations and add them to a list
+returns: transportations</p>
+</dd>
+<dt>def update_transportation(self, personid, serviceid, uses_in_morning, uses_in_evening, seat_nr, service_fee, stop_name):</dt><dd><p>updates an existing transportation
+returns: transportation_key</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+<li><p>These are the functions about transportation, for all CRUD operations as well as getting the names of employees and towns of services from their id values from the foreign key operations.</p></li>
+</ul>
+</div>
+<div class="section" id="view-functions">
+<h3>View Functions<a class="headerlink" href="#view-functions" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="simple">
+<dt>def list_page():</dt><dd><p>lists all the existing employees by calling the get employee function from the Database
+if user is logged in as admin, they can delete some of the existing employees</p>
+</dd>
+<dt>def employee_page(employee_key):</dt><dd><p>gets only the requested employee by its employee key by calling get employee function from the Database
+if user is logged in as admin, they can edit the employee</p>
+</dd>
+<dt>def employee_add_page():</dt><dd><p>adds a employee to the database by calling the add employee function from database
+validates whether the name and age are in appropriate form</p>
+</dd>
+<dt>def employee_update_page(employee_key):</dt><dd><p>updates a employee to the database by calling the update employee function from database
+validates whether the name and age are in appropriate form</p>
+</dd>
+<dt>def list_services():</dt><dd><p>lists all the existing services by calling the get services function from the Database
+if user is logged in as admin, they can delete some of the existing services</p>
+</dd>
+<dt>def service_page(service_key):</dt><dd><p>gets only the requested service by its service key by calling get service function from the Database
+if user is logged in as admin, they can edit the service</p>
+</dd>
+<dt>def jobtitle_add_page():</dt><dd><p>adds a service to the database by calling the add service function from database
+validates whether the title is in appropriate form</p>
+</dd>
+<dt>def jobtitle_update_page(jobtitle_key):</dt><dd><p>updates a service to the database by calling the add service function from database
+validates whether the title is in appropriate form</p>
+</dd>
+<dt>def list_transportations():</dt><dd><p>lists all the existing transportations by calling the get transportations function from the Database get_employees and get_service because of the foreign keys
+if user is logged in as admin, they can delete some of the existing transportations</p>
+</dd>
+<dt>def transportation_page(transportation_key):</dt><dd><p>gets only the requested transportation by its transportation key by calling get transportation function from the Database get_employees and get_service because of the foreign keys
+if user is logged in as admin, they can edit the transportation</p>
+</dd>
+<dt>def transportation_add_page():</dt><dd><p>adds a transportation to the database by calling the add transportation function from database and get_employees and get_service because of the foreign keys
+validates whether the salary is in appropriate form</p>
+</dd>
+<dt>def transportation_update_page(transportation_key):</dt><dd><p>updates a transportation to the database by calling the add transportation function from database get_employees and get_service because of the foreign keys
+validates whether the salary is in appropriate form</p>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="member1.html" class="btn btn-neutral float-left" title="Parts Implemented by Sinem Elif Haseki" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, ITUCSDB1916
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

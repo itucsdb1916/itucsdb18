@@ -1,0 +1,344 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Parts Implemented by Sinem Elif Haseki &mdash; ITUCSDB1916  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Parts Implemented by Hakan Saraç" href="member2.html" />
+    <link rel="prev" title="Developer Guide" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ITUCSDB1916
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../user/index.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Developer Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Parts Implemented by Sinem Elif Haseki</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#database-design">Database Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#code">Code</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#database-functions">Database Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#view-functions">View Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="member2.html">Parts Implemented by Hakan Saraç</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ITUCSDB1916</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Developer Guide</a> &raquo;</li>
+        
+      <li>Parts Implemented by Sinem Elif Haseki</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/developer/member1.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="parts-implemented-by-sinem-elif-haseki">
+<h1>Parts Implemented by Sinem Elif Haseki<a class="headerlink" href="#parts-implemented-by-sinem-elif-haseki" title="Permalink to this headline">¶</a></h1>
+<p>For EmployeeDB, I have worked on the tables JOBTITLES, LEVEL, WORKCHART
+and their related functions.</p>
+<div class="section" id="database-design">
+<h2>Database Design<a class="headerlink" href="#database-design" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="../_images/sinem.PNG"><img alt="../_images/sinem.PNG" src="../_images/sinem.PNG" style="width: 600px;" /></a>
+<ul class="simple">
+<li><p>The “JOBTITLES” table contains the available job titles along with their properties like its department, whether it is active, executive, or can be hired.</p></li>
+<li><p>The “LEVEL” table contains the available levels for jobs along with their properties like its experience year, bonus salary, whether it is director or manager.</p></li>
+<li><p>The “WORKCHART” table contains the current workchart information which maps the name of the employee to their job title, level, salary, foodbudget, total years they worked, years in the company and whether they quailfy for pension.</p></li>
+</ul>
+</div>
+<div class="section" id="code">
+<h2>Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="database-functions">
+<h3>Database Functions<a class="headerlink" href="#database-functions" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="simple">
+<dt>def add_jobtitle(self, jobtitle):</dt><dd><p>adds a new job title
+returns: jobtitle_key</p>
+</dd>
+<dt>def delete_jobtitle(self, jobtitle_key):</dt><dd><p>deletes a job title</p>
+</dd>
+<dt>def update_jobtitle(self, jobtitle_key, title, is_executive, department, is_active, to_be_hired):</dt><dd><p>updates an existing job title
+returns: jobtitle_key</p>
+</dd>
+<dt>def get_jobtitle(self, jobtitle_key):</dt><dd><p>get a single job title by its key
+returns: <a href="#id1"><span class="problematic" id="id2">jobtitle_</span></a></p>
+</dd>
+<dt>def get_jobtitles(self):</dt><dd><p>get all job titles and add them to a list
+returns: jobtitles</p>
+</dd>
+<dt>def get_jobtitle_id(self, jobtitle_name):</dt><dd><p>returns the id of a job title by its given name
+returns: jobtitle_id</p>
+</dd>
+</dl>
+</div></blockquote>
+<ul>
+<li><p>These are the functions about job titles, for all CRUD operations as well as getting the job title id for the foreign key operations.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>def add_level(self, level):</dt><dd><p>adds a new level
+returns: level_key</p>
+</dd>
+<dt>def delete_level(self, level_key):</dt><dd><p>deletes a level</p>
+</dd>
+<dt>def update_level(self, level_key, title, experience, bonus_salary, is_director, is_manager):</dt><dd><p>updates an existing level
+returns: level_key</p>
+</dd>
+<dt>def get_level(self, level_key):</dt><dd><p>get a single level by its key
+returns: <a href="#id3"><span class="problematic" id="id4">level_</span></a></p>
+</dd>
+<dt>def get_levels(self):</dt><dd><p>get all levels and add them to a list
+returns: levels</p>
+</dd>
+<dt>def get_level_id(self, level_name):</dt><dd><p>returns the id of a level by its given name
+returns: level_id</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+<li><p>These are the functions about level, for all CRUD operations as well as getting the level id for the foreign key operations.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>def add_workchart(self, workchart):</dt><dd><p>adds a new workchart
+returns: workchart_key</p>
+</dd>
+<dt>def delete_workchart(self, workchart_key):</dt><dd><p>deletes a workchart</p>
+</dd>
+<dt>def get_workchart(self, workchart_key):</dt><dd><p>get a single workchart by its key
+returns: <a href="#id5"><span class="problematic" id="id6">workchart_</span></a></p>
+</dd>
+<dt>def get_workcharts(self):</dt><dd><p>get all workcharts and add them to a list
+returns: workcharts</p>
+</dd>
+<dt>def update_workchart(self, personid, jobid, levelid, salary, foodbudget, total_yr_worked, yr_in_comp, qualify):</dt><dd><p>updates an existing workchart
+returns: workchart_key</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+<li><p>These are the functions about workchart, for all CRUD operations as well as getting the names of employees, titles of jobs, titles of levels from their id values from the foreign key operations.</p></li>
+</ul>
+</div>
+<div class="section" id="view-functions">
+<h3>View Functions<a class="headerlink" href="#view-functions" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="simple">
+<dt>def list_jobtitles():</dt><dd><p>lists all the existing job titles by calling the get job titles function from the Database
+if user is logged in as admin, they can delete some of the existing job titles</p>
+</dd>
+<dt>def jobtitle_page(jobtitle_key):</dt><dd><p>gets only the requested job title by its job title key by calling get job title function from the Database
+if user is logged in as admin, they can edit the job title</p>
+</dd>
+<dt>def jobtitle_add_page():</dt><dd><p>adds a job title to the database by calling the add job title function from database
+validates whether the title is in appropriate form</p>
+</dd>
+<dt>def jobtitle_update_page(jobtitle_key):</dt><dd><p>updates a job title to the database by calling the add job title function from database
+validates whether the title is in appropriate form</p>
+</dd>
+<dt>def list_levels():</dt><dd><p>lists all the existing levels by calling the get levels function from the Database
+if user is logged in as admin, they can delete some of the existing levels</p>
+</dd>
+<dt>def level_page(level_key):</dt><dd><p>gets only the requested level by its level key by calling get level function from the Database
+if user is logged in as admin, they can edit the level</p>
+</dd>
+<dt>def level_add_page():</dt><dd><p>adds a level to the database by calling the add level function from database
+validates whether the title is in appropriate form</p>
+</dd>
+<dt>def level_update_page(level_key):</dt><dd><p>updates a level to the database by calling the add level function from database
+validates whether the title is in appropriate form</p>
+</dd>
+<dt>def list_workcharts():</dt><dd><p>lists all the existing workcharts by calling the get workcharts function from the Database get_employees, get_levels and get_jobtitles because of the foreign keys
+if user is logged in as admin, they can delete some of the existing workcharts</p>
+</dd>
+<dt>def workchart_page(workchart_key):</dt><dd><p>gets only the requested workchart by its workchart key by calling get workchart function from the Database get_employees, get_levels and get_jobtitles because of the foreign keys
+if user is logged in as admin, they can edit the workchart</p>
+</dd>
+<dt>def workchart_add_page():</dt><dd><p>adds a workchart to the database by calling the add workchart function from database and get_employees, get_levels and get_jobtitles because of the foreign keys
+validates whether the salary is in appropriate form</p>
+</dd>
+<dt>def workchart_update_page(workchart_key):</dt><dd><p>updates a workchart to the database by calling the add workchart function from database get_employees, get_levels and get_jobtitles because of the foreign keys
+validates whether the salary is in appropriate form</p>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="member2.html" class="btn btn-neutral float-right" title="Parts Implemented by Hakan Saraç" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Developer Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, ITUCSDB1916
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
