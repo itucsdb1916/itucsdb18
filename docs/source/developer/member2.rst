@@ -5,11 +5,13 @@ and their related functions.
 
 Database Design
 ---------------
+.. image:: hakan.png
+    :width: 600
+
 * The "PERSON" table contains the available person along with their properties like their name, age, gender, height, and weight.
 * The "SERVICE" table contains the available services for employees along with their properties like its town, capacity, current passenger amount, licence plate and departure hour.
 * The "TRANSPORTATION" table contains the current transportation information which maps the name of the employee to their services, seat number, service fee, stop name, whether they use it in the morning or evening.
 
-**include the E/R diagram(s)**
 
 Code
 ----

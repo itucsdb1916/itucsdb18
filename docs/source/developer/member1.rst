@@ -5,11 +5,14 @@ and their related functions.
 
 Database Design
 ---------------
+.. image:: sinem.png
+    :width: 600
+
 * The "JOBTITLES" table contains the available job titles along with their properties like its department, whether it is active, executive, or can be hired.
 * The "LEVEL" table contains the available levels for jobs along with their properties like its experience year, bonus salary, whether it is director or manager.
 * The "WORKCHART" table contains the current workchart information which maps the name of the employee to their job title, level, salary, foodbudget, total years they worked, years in the company and whether they quailfy for pension.
 
-**include the E/R diagram(s)**
+
 
 Code
 ----
