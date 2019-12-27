@@ -69,7 +69,7 @@ Database Functions
 * These are the functions about job titles, for all CRUD operations as well as getting the job title id for the foreign key operations.
 
 
-   def add_level(self, level):
+    def add_level(self, level):
         with dbapi2.connect(self.dbfile) as connection:
             cursor = connection.cursor()
             query = "INSERT INTO LEVEL (LEVELNAME, EXPERIENCE_YEAR_NEEDED, BONUS_SALARY, IS_DIRECTOR, IS_MANAGER) VALUES (%s, %s, %s, %s, %s);"
@@ -165,5 +165,5 @@ Database Functions
             connection.commit()
         return personid
     
-These are the functions about workchart, for all CRUD operations as well as getting the names of employees, titles of jobs, titles of levels from their id values from the foreign key operations.
+* These are the functions about workchart, for all CRUD operations as well as getting the names of employees, titles of jobs, titles of levels from their id values from the foreign key operations.
 
