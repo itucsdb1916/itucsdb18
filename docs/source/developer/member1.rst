@@ -5,7 +5,7 @@ and their related functions.
 
 Database Design
 ---------------
-.. image:: sinem.png
+.. image:: sinem.PNG
     :width: 600
 
 * The "JOBTITLES" table contains the available job titles along with their properties like its department, whether it is active, executive, or can be hired.
