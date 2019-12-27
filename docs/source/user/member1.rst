@@ -5,10 +5,10 @@ JOB TITLES
 ----------
 * List of current job titles are seen as follows:
   * Admin view:
-    .. image:: jobtitle_list.png
+.. image:: jobtitle_list.png
     :width: 200
   * User view:
-    .. image:: job_user.PNG
+.. image:: job_user.PNG
     :width: 200
 
 
@@ -83,10 +83,10 @@ WORKCHARTS
 ----------
 * List of current workcharts are seen as follows:
   * Admin view:
-    .. image:: workchart_list.png
+.. image:: workchart_list.png
     :width: 200
   * User view:
-    .. image:: workchart_user.PNG
+.. image:: workchart_user.PNG
     :width: 200
 
 Adding workchart to the system

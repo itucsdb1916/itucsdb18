@@ -5,10 +5,10 @@ EMPLOYEES
 ----------
 * List of current employees are seen as follows:
   * Admin view:
-    .. image:: employee_list.png
+.. image:: employee_list.png
     :width: 200
   * User view:
-    .. image:: employee_user.PNG
+.. image:: employee_user.PNG
     :width: 200
 
 
@@ -44,10 +44,10 @@ SERVICES
 ----------
 * List of current services are seen as follows:
   * Admin view:
-    .. image:: service_list.png
+.. image:: service_list.png
     :width: 200
   * User view:
-    .. image:: service_user.PNG
+.. image:: service_user.PNG
     :width: 200
 
 Adding services to the system
@@ -82,10 +82,10 @@ TRANSPORTATIONS
 ----------------
 * List of current transportations are seen as follows:
   * Admin view:
-    .. image:: transportation_list.png
+.. image:: transportation_list.png
     :width: 200
   * User view:
-    .. image:: transportation_user.PNG
+.. image:: transportation_user.PNG
     :width: 200
 
 Adding transportation to the system
