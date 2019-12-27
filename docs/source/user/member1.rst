@@ -3,10 +3,7 @@ Parts Implemented by Sinem Elif Haseki
 ----------
 JOB TITLES
 ----------
-* List of current job titles are seen as follows:
-  * Admin view:
-.. image:: jobtitle_list.png
-    :width: 400
+* List of current job titles are seen as follows:  
   * User view:
 .. image:: job_user.PNG
     :width: 400
@@ -43,9 +40,6 @@ Deleting job titles from the system
 LEVELS
 ----------
 * List of current levels are seen as follows:
-  * Admin view:
-    .. image:: level_list.png
-    :width: 400
   * User view:
     .. image:: level_user.PNG
     :width: 400
@@ -82,9 +76,6 @@ Deleting levels from the system
 WORKCHARTS
 ----------
 * List of current workcharts are seen as follows:
-  * Admin view:
-.. image:: workchart_list.png
-    :width: 400
   * User view:
 .. image:: workchart_user.PNG
     :width: 400

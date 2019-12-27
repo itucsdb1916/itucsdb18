@@ -4,9 +4,6 @@ Parts Implemented by Hakan Saraç
 EMPLOYEES
 ----------
 * List of current employees are seen as follows:
-  * Admin view:
-.. image:: employee_list.png
-    :width: 400
   * User view:
 .. image:: employee_user.PNG
     :width: 400
@@ -43,9 +40,6 @@ Deleting employees from the system
 SERVICES
 ----------
 * List of current services are seen as follows:
-  * Admin view:
-.. image:: service_list.png
-    :width: 400
   * User view:
 .. image:: service_user.PNG
     :width: 400
@@ -81,9 +75,6 @@ Deleting services from the system
 TRANSPORTATIONS
 ----------------
 * List of current transportations are seen as follows:
-  * Admin view:
-.. image:: transportation_list.png
-    :width: 400
   * User view:
 .. image:: transportation_user.PNG
     :width: 400
